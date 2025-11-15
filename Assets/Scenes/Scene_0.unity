@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588895284000480801, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373514673853559845, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373514673853559845, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674355896981255325, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2446565744100034781, guid: b552a95b1c920ec41834decedd896445, type: 3}
       propertyPath: m_Name
       value: Player
@@ -180,6 +196,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2446565744100034782, guid: b552a95b1c920ec41834decedd896445, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975135592673376228, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975135592673376228, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414868139059641975, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712550966400813689, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -472,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525456421605587019, guid: b70e6822d691f8e4ba67af7cebf9d2ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3031061
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 525456421605587019, guid: b70e6822d691f8e4ba67af7cebf9d2ea, type: 3}
       propertyPath: m_LocalPosition.y
