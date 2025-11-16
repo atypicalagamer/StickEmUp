@@ -112,9 +112,9 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!144 &635081673981337607
@@ -177,7 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
-  rigid: {fileID: 0}
+  rigid: {fileID: 6712550966400813689}
+  uprightStrength: 10
+  uprightDamping: 5
 --- !u!1 &2446565742639654447
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,9 +292,9 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!144 &4847708725391141443
@@ -355,7 +357,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
-  rigid: {fileID: 0}
+  rigid: {fileID: 4414868139059641975}
+  uprightStrength: 10
+  uprightDamping: 5
 --- !u!1 &2446565743331860156
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +373,7 @@ GameObject:
   - component: {fileID: 2446565743331860159}
   - component: {fileID: 2446565743331860158}
   - component: {fileID: 1373514673853559845}
+  - component: {fileID: 607363272}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -467,11 +472,28 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &607363272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446565743331860156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c295750bb27497b49a9b1f77446fb9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 10
+  rigid: {fileID: 1373514673853559845}
+  uprightStrength: 10
+  uprightDamping: 5
 --- !u!1 &2446565744100034781
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,9 +643,9 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!144 &3415175501916952957
@@ -686,7 +708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
-  rigid: {fileID: 0}
+  rigid: {fileID: 588895284000480801}
+  uprightStrength: 10
+  uprightDamping: 5
 --- !u!1 &2446565744225240262
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,9 +823,9 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!144 &2446803444311264582
@@ -864,7 +888,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 10
-  rigid: {fileID: 0}
+  rigid: {fileID: 1674355896981255325}
+  uprightStrength: 10
+  uprightDamping: 5
 --- !u!1 &2446565744311518907
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +905,7 @@ GameObject:
   - component: {fileID: 2446565744311518909}
   - component: {fileID: 2975135592673376228}
   - component: {fileID: 1236047624006973645}
+  - component: {fileID: 1213739421}
   m_Layer: 0
   m_Name: Torso
   m_TagString: Untagged
@@ -976,9 +1003,9 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!144 &1236047624006973645
@@ -1027,6 +1054,23 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1213739421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446565744311518907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c295750bb27497b49a9b1f77446fb9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 10
+  rigid: {fileID: 2975135592673376228}
+  uprightStrength: 10
+  uprightDamping: 5
 --- !u!1 &3494663335760374375
 GameObject:
   m_ObjectHideFlags: 0
