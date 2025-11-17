@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4082516059317825965}
   m_Layer: 0
   m_Name: DungeonWall (16)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8643612507122530936}
   m_Layer: 0
   m_Name: DungeonFloor (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3975319641456019889}
   m_Layer: 0
   m_Name: DungeonFloor (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 2547322426417979894}
   m_Layer: 0
   m_Name: DungeonFloor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 2581030480050352453}
   m_Layer: 0
   m_Name: DungeonWall (12)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 7595382194320962128}
   m_Layer: 0
   m_Name: DungeonFloor (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 7986504178225009689}
   m_Layer: 0
   m_Name: DungeonWall (14)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -609,8 +609,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2873233459687237524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4214287, y: 0, z: 0}
-  m_LocalScale: {x: 1.1428571, y: 1, z: 1}
+  m_LocalPosition: {x: -2.4214287, y: 1.5, z: 0}
+  m_LocalScale: {x: 1.15, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 498873887343905591}
@@ -693,7 +693,7 @@ GameObject:
   - component: {fileID: 6624592692743736839}
   m_Layer: 0
   m_Name: DungeonWall (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 1215976345495258577}
   m_Layer: 0
   m_Name: DungeonWall (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 379000269090931333}
   m_Layer: 0
   m_Name: DungeonWall (13)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 2573967536693561212}
   m_Layer: 0
   m_Name: DungeonWall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,8 +997,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3885479738637494391}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -6.649, y: 0, z: -79.88}
-  m_LocalScale: {x: 40, y: 1, z: 0.07142858}
+  m_LocalPosition: {x: -6.649, y: 1.5, z: -79.88}
+  m_LocalScale: {x: 40, y: 4, z: 0.07142858}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 498873887343905591}
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 8951356381020109546}
   m_Layer: 0
   m_Name: DungeonWall (17)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 1439390577292670190}
   m_Layer: 0
   m_Name: DungeonWall (11)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1275,7 +1275,7 @@ GameObject:
   - component: {fileID: 8216526773676069809}
   m_Layer: 0
   m_Name: DungeonWall (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1372,7 +1372,7 @@ GameObject:
   - component: {fileID: 4945762626016761300}
   m_Layer: 0
   m_Name: DungeonWall (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1385,8 +1385,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4717015200572274510}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.529, y: 0, z: -64.95}
-  m_LocalScale: {x: 12, y: 1, z: 0.07142858}
+  m_LocalPosition: {x: -5.529, y: 1.5, z: -64.95}
+  m_LocalScale: {x: 12, y: 4, z: 0.07142858}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 498873887343905591}
@@ -1502,7 +1502,7 @@ GameObject:
   - component: {fileID: 7333141697597481127}
   m_Layer: 0
   m_Name: DungeonWall (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1599,7 +1599,7 @@ GameObject:
   - component: {fileID: 1375810048261841639}
   m_Layer: 0
   m_Name: DungeonFloor (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 2993483147250671458}
   m_Layer: 0
   m_Name: DungeonFloor (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 3109570400383542837}
   m_Layer: 0
   m_Name: DungeonWall (18)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1806,8 +1806,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6582154057404339607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.079, y: 0, z: -59.39}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalPosition: {x: -6.079002, y: 1.5, z: -59.390007}
+  m_LocalScale: {x: 1.2, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 498873887343905591}
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 9015375353839428870}
   m_Layer: 0
   m_Name: DungeonWall (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 1510441587650579952}
   m_Layer: 0
   m_Name: DungeonWall (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2084,7 +2084,7 @@ GameObject:
   - component: {fileID: 9054780852768094265}
   m_Layer: 0
   m_Name: DungeonWall (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2181,7 +2181,7 @@ GameObject:
   - component: {fileID: 4358135142487131455}
   m_Layer: 0
   m_Name: DungeonFloor (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2282,9 +2282,9 @@ GameObject:
   - component: {fileID: 223595920254128418}
   - component: {fileID: 8435064094226819125}
   - component: {fileID: 232899744018877457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DungeonWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2297,8 +2297,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8262624240812480998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.74, y: 0, z: -70.33}
-  m_LocalScale: {x: 3.7, y: 1, z: 1}
+  m_LocalPosition: {x: -3.74, y: 1.5, z: -70.33}
+  m_LocalScale: {x: 3.7, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 498873887343905591}
@@ -2381,7 +2381,7 @@ GameObject:
   - component: {fileID: 5402205276183765759}
   m_Layer: 0
   m_Name: DungeonWall (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2497,7 +2497,7 @@ GameObject:
   - component: {fileID: 3922120587333264941}
   m_Layer: 0
   m_Name: DungeonWall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2594,7 +2594,7 @@ GameObject:
   - component: {fileID: 1086913608029099}
   m_Layer: 0
   m_Name: DungeonWall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
