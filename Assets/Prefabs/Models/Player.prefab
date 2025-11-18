@@ -379,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   InputKey: {x: 0, y: 0, z: 0}
+  cam: {fileID: 0}
 --- !u!1 &2446565744191529680
 GameObject:
   m_ObjectHideFlags: 0
