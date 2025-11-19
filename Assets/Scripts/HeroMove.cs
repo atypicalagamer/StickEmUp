@@ -6,13 +6,12 @@ public class HeroMove : MonoBehaviour
 {
     public Rigidbody rb;
     public Vector3 InputKey;
+    public Transform cam;
     float Myfloat;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //rb.freezeRotation = false;
-        //rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
     // Update is called once per frame
     void Update()
@@ -22,26 +21,38 @@ public class HeroMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*rb.MovePosition((Vector3) transform.position + InputKey * 10 * Time.deltaTime);
+        float x = InputKey.x;
+        float z = InputKey.z;
 
+        // No input? Don't rotate
         if (InputKey.magnitude >= 0.1f)
         {
-            float Angle = Mathf.Atan2(InputKey.x, InputKey.z) * Mathf.Rad2Deg;
-            float Smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, Angle, ref Myfloat, 0.1f);
+            // Camera-based direction
+            Vector3 camForward = cam.forward;
+            Vector3 camRight = cam.right;
 
-            transform.rotation = Quaternion.Euler(0, Smooth, 0);
-        }*/
+            // Flatten so player doesn't look up/down
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
 
-        Vector3 targetVelocity = InputKey.normalized * 10f;
-        Vector3 velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
-        rb.velocity = velocity;
+            // Calculate movement direction relative to camera
+            Vector3 moveDir = (camForward * z + camRight * x).normalized;
 
-        if (InputKey.magnitude >= 0.1f)
+            // Rotate player toward movement direction
+            float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
+            float smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref Myfloat, 0.1f);
+            transform.rotation = Quaternion.Euler(0f, smooth, 0f);
+
+            // Apply movement (keep Y from gravity)
+            Vector3 velocity = moveDir * 10f;
+            rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
+        }
+        else
         {
-            float Angle = Mathf.Atan2(InputKey.x, InputKey.z) * Mathf.Rad2Deg;
-            float Smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, Angle, ref Myfloat, 0.1f);
-
-            transform.rotation = Quaternion.Euler(0, Smooth, 0);
+            // no movement input — keep vertical velocity only
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
     }
 }
