@@ -1,151 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class MovingEnemy : MonoBehaviour
-{
-    public enum EnemyState { Idle, Chase, Attack }
-    private EnemyState currentState = EnemyState.Idle; // Default state
+public class MovingEnemy : MonoBehaviour {
+    [Range(0, 50)] [SerializeField] float attackRange = 2f, sightRange = 8f, timeBetweenAttacks = 1.5f;
 
-    [Header("Movement & Range")]
-    public float moveSpeed = 5f;
-    public float attackRange = 3f;
-    public float rotationSpeed = 4f;
+    [Range(0, 50)] [SerializeField] int power; // The amount of damage the enemy does
 
-    [Header("Attack Settings")]
-    [SerializeField] private GameObject attackHitboxPrefab;
-    [SerializeField] private float attackCooldown = 2.0f;
-    [SerializeField] private Vector3 hitboxOffset = new Vector3(0f, 0f, 1f);
-    private bool isAttacking = false;
+    private NavMeshAgent thisEnemy;
+    public Transform playerPos;
 
-    private Rigidbody EnemyRB;
-    private Transform playerTarget;
-    private float timeSinceLastAttack = 0f;
+    private bool isAttacking; // If the enemy is attacking
 
-    void Start()
-    {
-        EnemyRB = GetComponent<Rigidbody>();
-        if (EnemyRB == null)
-        {
-            Debug.LogError("Enemy doesn't have a Rigidbody component.");
-        }
-        EnemyRB.isKinematic = false;
-        EnemyRB.freezeRotation = true;
+    private void Start() {
+        thisEnemy = GetComponent<NavMeshAgent>();
+        playerPos = FindObjectOfType<PlayerHealth>().transform;
     }
 
-    void Update()
-    {
-        switch (currentState)
-        {
-            case EnemyState.Idle:
-                break;
-            case EnemyState.Chase:
-                if (playerTarget != null)
-                {
-                    float distance = Vector3.Distance(transform.position, playerTarget.position);
+    private void Update() {
+        float distanceFromPlayer = Vector3.Distance(playerPos.position, this.transform.position); // The distance between player and enemy
 
-                    if (distance <= attackRange && timeSinceLastAttack >= attackCooldown)
-                    {
-                        currentState = EnemyState.Attack;
-                    }
-                    else if (distance <= attackRange && timeSinceLastAttack < attackCooldown)
-                    {
-                        RotateTowardsPlayer();
-                    }
-                    else // distance > attackRange
-                    {
-                        RotateTowardsPlayer();
-                    }
-                }
-                break;
-            case EnemyState.Attack:
-                if (!isAttacking)
-                {
-                    StartCoroutine(AttackRoutine());
-                }
-                break;
+        if (distanceFromPlayer <= sightRange && distanceFromPlayer > attackRange && !PlayerHealth.isDead) { // If the player is in sight, not in attack range, and isn't dead
+            isAttacking = false; // Don't attack
+            thisEnemy.isStopped = false; // Keep moving
+            StopAllCoroutines(); // Stop attack function
+
+            ChasePlayer();
         }
 
-        if (timeSinceLastAttack < attackCooldown)
-        {
-            timeSinceLastAttack += Time.deltaTime;
+        if (distanceFromPlayer <= attackRange && !isAttacking && !PlayerHealth.isDead) {
+            thisEnemy.isStopped = true; // Stop the enemy from moving
+            StartCoroutine(AttackPlayer()); // Start attacking
         }
-    }
-    
-    void FixedUpdate()
-    {
-        if (currentState == EnemyState.Chase && playerTarget != null)
-        {
-            float distance = Vector3.Distance(transform.position, playerTarget.position);
-            
-            if (distance > attackRange)
-            {
-                Vector3 moveDirection = transform.forward * moveSpeed;
-                EnemyRB.velocity = new Vector3(moveDirection.x, EnemyRB.velocity.y, moveDirection.z);
-            }
-            else
-            {
-                EnemyRB.velocity = Vector3.zero;
-            }
-        }
-        else
-        {
-            EnemyRB.velocity = Vector3.zero;
+
+        if (PlayerHealth.isDead) {
+            thisEnemy.isStopped = true;
         }
     }
 
-    private void RotateTowardsPlayer()
-    {
-        if (playerTarget != null)
-        {
-            Vector3 direction = playerTarget.position - transform.position;
-            direction.y = 0;
-
-            if (direction != Vector3.zero)
-            {
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-            }
-        }
+    private void ChasePlayer() {
+        thisEnemy.SetDestination(playerPos.position); // Set the enemy's destination to the player
     }
-    
-    private IEnumerator AttackRoutine()
-    {
+
+    private IEnumerator AttackPlayer() {
         isAttacking = true;
-        
-        EnemyRB.velocity = Vector3.zero;
-
-        // Debug.Log("Enemy is attacking!");
-        
-        Vector3 spawnPosition = transform.position + transform.rotation * hitboxOffset;
-        GameObject hitbox = Instantiate(attackHitboxPrefab, spawnPosition, transform.rotation);
-        
-        timeSinceLastAttack = 0f;
-
-        yield return new WaitForSeconds(0.1f); 
-
-        currentState = EnemyState.Chase; 
+        yield return new WaitForSeconds(timeBetweenAttacks); // Wait for the time between attacks
+        FindObjectOfType<PlayerHealth>().TakeDamage(power); // Damage the player with power damage
         isAttacking = false;
     }
-    
-    // Trigger functions for detection
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player entered detection zone. Switching to Chase state.", this);
-            playerTarget = other.transform;
-            currentState = EnemyState.Chase;
-        }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player left detection zone. Switching to Idle state.", this);
-            playerTarget = null;
-            currentState = EnemyState.Idle;
-        }
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(this.transform.position, sightRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, attackRange);
     }
 }
+// Credit to code for this and PlayerHealth by Developer Jake on YT!
