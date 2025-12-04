@@ -498,9 +498,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 5.5
-  sightRange: 15
-  timeBetweenAttacks: 1.8
-  power: 33
+  sightRange: 30
+  timeBetweenAttacks: 2.5
+  power: 30
   playerPos: {fileID: 0}
 --- !u!1 &9171197604296166283
 GameObject:
