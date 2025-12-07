@@ -5,14 +5,18 @@ using UnityEngine;
 public class AttackHitbox : MonoBehaviour
 {
     [SerializeField]
-    public int damage = 5;
-    PlayerHealth playerHealth;
+    public float damage = 5f;
     
+    void Start()
+    {
+        Destroy(gameObject, 0.2f); 
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerHealth = other.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
             if (playerHealth != null)
             {
@@ -27,12 +31,4 @@ public class AttackHitbox : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    /*public void FixedUpdate()
-    {
-        if (playerHealth == 0)
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }
