@@ -15,9 +15,8 @@ public class MovingEnemy : MonoBehaviour
     [Header("Attack Settings")]
     [SerializeField] private GameObject attackHitboxPrefab;
     [SerializeField] private float attackCooldown = 2.0f;
-    [SerializeField] private Vector3 hitboxOffset = new Vector3(0f, 0f, 1.5f);
+    [SerializeField] private Vector3 hitboxOffset = new Vector3(0f, 0f, 1f);
     private bool isAttacking = false;
-
 
     private Rigidbody EnemyRB;
     private Transform playerTarget;
@@ -28,7 +27,7 @@ public class MovingEnemy : MonoBehaviour
         EnemyRB = GetComponent<Rigidbody>();
         if (EnemyRB == null)
         {
-            Debug.LogError("Enemy doesn't have a Rigidbody component.. somehow.");
+            Debug.LogError("Enemy doesn't have a Rigidbody component.");
         }
         EnemyRB.isKinematic = false;
         EnemyRB.freezeRotation = true;
@@ -116,7 +115,7 @@ public class MovingEnemy : MonoBehaviour
         
         EnemyRB.velocity = Vector3.zero;
 
-        Debug.Log("Enemy is attacking!");
+        // Debug.Log("Enemy is attacking!");
         
         Vector3 spawnPosition = transform.position + transform.rotation * hitboxOffset;
         GameObject hitbox = Instantiate(attackHitboxPrefab, spawnPosition, transform.rotation);
