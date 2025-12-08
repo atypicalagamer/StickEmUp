@@ -6,6 +6,7 @@ public class HeroMove : MonoBehaviour
 {
     public Rigidbody rb;
     public Vector3 InputKey;
+    public Transform cam;
     float Myfloat;
     public float speed = 10f;
 
@@ -32,8 +33,9 @@ public class HeroMove : MonoBehaviour
             float Smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, Angle, ref Myfloat, 0.1f);
 
             transform.rotation = Quaternion.Euler(0, Smooth, 0);
-        }*/
+        }
 
+        Vector3 moveDir = Vector3.zero;
         Vector3 targetVelocity = InputKey.normalized * 10f;
         Vector3 velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
         rb.velocity = velocity;
@@ -59,3 +61,4 @@ public class HeroMove : MonoBehaviour
         rb.velocity = desiredVelocity;
     }
 }
+*/
