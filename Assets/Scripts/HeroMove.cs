@@ -35,13 +35,22 @@ public class HeroMove : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, Smooth, 0);
         }
 
-        Vector3 moveDir = Vector3.zero;
+        moveDir = Vector3.zero;
         Vector3 targetVelocity = InputKey.normalized * 10f;
         Vector3 velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
-        rb.velocity = velocity;
+        rb.velocity = velocity;*/
 
         if (InputKey.magnitude >= 0.1f)
         {
+            Vector3 camForward = cam.forward;
+            Vector3 camRight = cam.right;
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
+
+            moveDir = (camForward * InputKey.z + camRight * InputKey.x).normalized;
+            
             float Angle = Mathf.Atan2(InputKey.x, InputKey.z) * Mathf.Rad2Deg;
             float Smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, Angle, ref Myfloat, 0.1f);
 
@@ -61,4 +70,3 @@ public class HeroMove : MonoBehaviour
         rb.velocity = desiredVelocity;
     }
 }
-*/
