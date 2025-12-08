@@ -6,11 +6,6 @@ public class AttackHitbox : MonoBehaviour
 {
     [SerializeField]
     public float damage = 5f;
-    
-    void Start()
-    {
-        Destroy(gameObject, 0.2f); 
-    }
 
     private void OnTriggerEnter(Collider other)
     {
