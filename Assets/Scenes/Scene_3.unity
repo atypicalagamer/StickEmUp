@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18362638, g: 0.22787616, b: 0.29804698, a: 1}
+  m_IndirectSpecularColor: {r: 0.18362674, g: 0.22787654, b: 0.29804802, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8335731319176459639, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b552a95b1c920ec41834decedd896445, type: 3}
 --- !u!1 &600721773
@@ -743,6 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1163160039}
   offset: {x: 0, y: 0, z: 0}
+  smoothSpeed: 8
 --- !u!4 &1163160039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2446565744100034782, guid: b552a95b1c920ec41834decedd896445, type: 3}

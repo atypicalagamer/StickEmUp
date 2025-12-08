@@ -402,8 +402,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9171197603377966773}
   - component: {fileID: 9106546642679889434}
+  - component: {fileID: 6564659567861167020}
   - component: {fileID: 7451981525105282109}
-  - component: {fileID: -6129374328476566118}
   - component: {fileID: 970482125938385641}
   m_Layer: 0
   m_Name: Orc
@@ -447,6 +447,19 @@ CapsuleCollider:
   m_Height: 6.5
   m_Direction: 1
   m_Center: {x: 0, y: -1.5, z: 0}
+--- !u!135 &6564659567861167020
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171197603377966770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7451981525105282109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -463,28 +476,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!195 &-6129374328476566118
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171197603377966770}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1.75
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 6.75
-  m_BaseOffset: 4.8
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &970482125938385641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,11 +488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f217051dbc396274da571555314ecd47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 2
   attackRange: 5.5
-  sightRange: 30
-  timeBetweenAttacks: 2.5
-  power: 30
-  playerPos: {fileID: 0}
+  rotationSpeed: 2.5
+  attackHitboxPrefab: {fileID: 209534415800682676, guid: e112051547c152c4c914c4dafc077d00, type: 3}
+  attackCooldown: 2.5
+  hitboxOffset: {x: 0, y: 0, z: 1.5}
 --- !u!1 &9171197604296166283
 GameObject:
   m_ObjectHideFlags: 0
