@@ -8,10 +8,12 @@ public class HeroMove : MonoBehaviour
     public Vector3 InputKey;
     public Transform cam;
     float Myfloat;
+    public float speed = 10f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
     // Update is called once per frame
     void Update()
@@ -21,8 +23,9 @@ public class HeroMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        float x = InputKey.x;
-        float z = InputKey.z;
+        //float x = InputKey.x;
+        //float z = InputKey.z;
+        Vector3 moveDir = Vector3.zero;
 
         // No input? Don't rotate
         if (InputKey.magnitude >= 0.1f)
@@ -38,7 +41,7 @@ public class HeroMove : MonoBehaviour
             camRight.Normalize();
 
             // Calculate movement direction relative to camera
-            Vector3 moveDir = (camForward * z + camRight * x).normalized;
+            moveDir = (camForward * InputKey.z + camRight * InputKey.x).normalized;
 
             // Rotate player toward movement direction
             float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
@@ -54,5 +57,17 @@ public class HeroMove : MonoBehaviour
             // no movement input — keep vertical velocity only
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
+        
+        float yVel = rb.velocity.y;
+
+        if (yVel > 0.5f)
+        {
+            yVel = 0.5f;
+        }
+
+        Vector3 desiredVelocity = moveDir * speed;
+        desiredVelocity.y = yVel;
+
+        rb.velocity = desiredVelocity;
     }
 }

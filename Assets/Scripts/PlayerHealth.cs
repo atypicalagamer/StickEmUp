@@ -9,16 +9,25 @@ public class PlayerHealth : MonoBehaviour {
 
     private void Start() {
         currentHealth = startHealth; // Sets health to start health at the beginning of the game/scene
+        ShowHealth.UpdateHealthUI(currentHealth);
     }
 
-    private void Update() {
+    /*private void Update() {
         if (currentHealth <= 0 && !isDead) {
             isDead = true;
             Debug.Log("The player is dead!");
         }
-    }
+    }*/
 
     public void TakeDamage(int amount) {
         currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, startHealth);
+
+        ShowHealth.UpdateHealthUI(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Player Died!");
+        }
     }
 }

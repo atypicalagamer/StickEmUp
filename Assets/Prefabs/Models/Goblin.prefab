@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 6032273656351933047}
   - component: {fileID: 8030697654677059225}
   - component: {fileID: 6816485553178805392}
+  - component: {fileID: 599310838}
   m_Layer: 11
   m_Name: Goblin
   m_TagString: Untagged
@@ -183,7 +184,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 4
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -208,6 +209,19 @@ MonoBehaviour:
   timeBetweenAttacks: 1.8
   power: 5
   playerPos: {fileID: 0}
+--- !u!114 &599310838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453102720613253316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94fd16faf3aaa1489d89af682c7e481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &4515275672640478461
 GameObject:
   m_ObjectHideFlags: 0

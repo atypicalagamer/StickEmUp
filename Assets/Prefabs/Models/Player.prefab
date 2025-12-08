@@ -307,6 +307,8 @@ GameObject:
   - component: {fileID: 9129246194089814812}
   - component: {fileID: 6202924048183348516}
   - component: {fileID: 8335731319176459639}
+  - component: {fileID: 1869546808}
+  - component: {fileID: 1869546812}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -380,6 +382,33 @@ MonoBehaviour:
   rb: {fileID: 0}
   InputKey: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
+--- !u!114 &1869546808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446565744100034781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756cc1e8766034f45afb670a902db6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currentHealth: 0
+--- !u!114 &1869546812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446565744100034781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94fd16faf3aaa1489d89af682c7e481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &2446565744191529680
 GameObject:
   m_ObjectHideFlags: 0

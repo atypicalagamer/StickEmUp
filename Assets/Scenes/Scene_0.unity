@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6816485553178805392, guid: b22cdb6be3563cf47b4278a209943aad, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 1163160039}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22cdb6be3563cf47b4278a209943aad, type: 3}
 --- !u!1 &125241245 stripped
@@ -662,6 +666,8 @@ GameObject:
   - component: {fileID: 443736705}
   - component: {fileID: 443736707}
   - component: {fileID: 443736706}
+  - component: {fileID: 443736708}
+  - component: {fileID: 443736709}
   m_Layer: 5
   m_Name: Player_Info
   m_TagString: Untagged
@@ -731,6 +737,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443736704}
   m_CullTransparentMesh: 1
+--- !u!114 &443736708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443736704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756cc1e8766034f45afb670a902db6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currentHealth: 0
+--- !u!114 &443736709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443736704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9df826c98b9df445ad43d8b50846f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &543187558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -843,6 +875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1869546812, guid: b552a95b1c920ec41834decedd896445, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2446565744100034781, guid: b552a95b1c920ec41834decedd896445, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1251,7 +1287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.3723803, y: -0, z: -0, w: 0.92808026}
-  m_LocalPosition: {x: 0, y: 19.4, z: -19.6}
+  m_LocalPosition: {x: -0.34, y: 3.83, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1332,10 +1368,6 @@ PrefabInstance:
     - target: {fileID: 2453102720613253316, guid: b22cdb6be3563cf47b4278a209943aad, type: 3}
       propertyPath: m_Name
       value: Goblin
-      objectReference: {fileID: 0}
-    - target: {fileID: 8030697654677059225, guid: b22cdb6be3563cf47b4278a209943aad, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22cdb6be3563cf47b4278a209943aad, type: 3}
@@ -1490,25 +1522,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972339976}
   m_CullTransparentMesh: 1
---- !u!1 &1869546804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2446565744100034781, guid: b552a95b1c920ec41834decedd896445, type: 3}
-  m_PrefabInstance: {fileID: 566513822}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1869546808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1869546804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756cc1e8766034f45afb670a902db6a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHealth: 100
-  currentHealth: 0
 --- !u!1 &1972339976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1972339977
 MonoBehaviour:
   m_ObjectHideFlags: 0
