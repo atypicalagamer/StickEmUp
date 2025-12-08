@@ -8,8 +8,9 @@ public class PlayerHealth : MonoBehaviour
     // --- Public Fields for Unity Inspector ---
     [Header("Health Stats")]
     [SerializeField]
-    private float maxHealth = 100f; // Maximum health the player can have
-    private float currentHealth; // The player's current health
+    private int maxHealth = 100; // Maximum health the player can have
+    [SerializeField]
+    private int currentHealth; // The player's current health
 
     [Header("Regeneration")]
     [SerializeField]
@@ -19,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     private float lastHitTime;
 
     public UnityEvent OnPlayerDeath;
-    public UnityEvent<float> OnHealthChanged; // Passes the new current health
+    public UnityEvent<int> OnHealthChanged; // Passes the new current health
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         lastHitTime = Time.time;
         OnHealthChanged.Invoke(currentHealth); // Fire event to update any initial UI
+        ShowHealth.UpdateHealthUI(currentHealth);
     }
 
     void Update()
@@ -41,17 +43,16 @@ public class PlayerHealth : MonoBehaviour
     // --- Core Logic: Receiving Damage ---
     public void TakeDamage(float damage)
     {
-        if (currentHealth <= 0) 
-            return; // Already dead, ignore damage
-
-        currentHealth -= damage;
+        currentHealth -= Mathf.RoundToInt(damage);
         lastHitTime = Time.time; // Reset the regen timer
 
         // Clamp the health value so it doesn't go below zero
-        currentHealth = Mathf.Max(0, currentHealth);
+        currentHealth = Mathf.Max(currentHealth, 0, maxHealth);
 
         Debug.Log($"Player took {damage} damage! Current Health: {currentHealth}");
         OnHealthChanged.Invoke(currentHealth);
+
+        ShowHealth.UpdateHealthUI(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -63,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
     private void RegenerateHealth()
     {
         // Add health based on rate and frame time
-        currentHealth += healthRegenRate * Time.deltaTime;
+        currentHealth += Mathf.RoundToInt(healthRegenRate * Time.deltaTime);
 
         // Clamp the health value so it doesn't exceed max health
         currentHealth = Mathf.Min(maxHealth, currentHealth);

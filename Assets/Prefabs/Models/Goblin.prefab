@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 2621651365579626068}
   - component: {fileID: 6032273656351933047}
   - component: {fileID: 6816485553178805392}
+  - component: {fileID: 7812932981365289597}
   m_Layer: 11
   m_Name: Goblin
   m_TagString: Untagged
@@ -200,6 +201,19 @@ MonoBehaviour:
   attackHitboxPrefab: {fileID: 209534415800682676, guid: e112051547c152c4c914c4dafc077d00, type: 3}
   attackCooldown: 1.4
   hitboxOffset: {x: 0, y: 0, z: 1.5}
+--- !u!114 &7812932981365289597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453102720613253316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94fd16faf3aaa1489d89af682c7e481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
 --- !u!1 &4515275672640478461
 GameObject:
   m_ObjectHideFlags: 0
