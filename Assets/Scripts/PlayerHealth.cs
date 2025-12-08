@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
         {
             RegenerateHealth();
         }
-    }*/
+    }
 
     // --- Core Logic: Receiving Damage ---
     public void TakeDamage(float damage)

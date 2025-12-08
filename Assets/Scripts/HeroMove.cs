@@ -6,6 +6,7 @@ public class HeroMove : MonoBehaviour
 {
     public Rigidbody rb;
     public Vector3 InputKey;
+    public Transform cam;
     float Myfloat;
     public float speed = 10f;
 
@@ -23,7 +24,36 @@ public class HeroMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*rb.MovePosition((Vector3) transform.position + InputKey * 10 * Time.deltaTime);
+        Vector3 moveDir = Vector3.zero;
+
+        if (InputKey.magnitude >= 0.1f)
+        {
+            Vector3 camForward = cam.forward;
+            Vector3 camRight = cam.right;
+
+            camForward.y = 0;
+            camRight.y = 0;
+            camForward.Normalize();
+            camRight.Normalize();
+
+            moveDir = (camForward * InputKey.z + camRight * InputKey.x).normalized;
+
+            float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
+            float smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref Myfloat, 0.1f);
+            transform.rotation = Quaternion.Euler(0f, smooth, 0f);
+
+            Vector3 desiredVelocity = moveDir * speed;
+            desiredVelocity.y = rb.velocity.y;
+            rb.velocity = desiredVelocity;
+        }
+        else
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        }
+    }
+}
+/*
+        rb.MovePosition((Vector3) transform.position + InputKey * 10 * Time.deltaTime);
 
         if (InputKey.magnitude >= 0.1f)
         {
@@ -31,8 +61,9 @@ public class HeroMove : MonoBehaviour
             float Smooth = Mathf.SmoothDampAngle(transform.eulerAngles.y, Angle, ref Myfloat, 0.1f);
 
             transform.rotation = Quaternion.Euler(0, Smooth, 0);
-        }*/
+        }
 
+        Vector3 moveDir = Vector3.zero;
         Vector3 targetVelocity = InputKey.normalized * 10f;
         Vector3 velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
         rb.velocity = velocity;
@@ -58,3 +89,4 @@ public class HeroMove : MonoBehaviour
         rb.velocity = desiredVelocity;
     }
 }
+*/
