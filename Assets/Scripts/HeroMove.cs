@@ -23,6 +23,7 @@ public class HeroMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector3 moveDir = Vector3.zero;
         /*rb.MovePosition((Vector3) transform.position + InputKey * 10 * Time.deltaTime);
 
         if (InputKey.magnitude >= 0.1f)
